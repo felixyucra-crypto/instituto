@@ -4,116 +4,64 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Foros Complementarios</title>
-
 <style>
-  *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-  }
-
+  *{margin:0;padding:0;box-sizing:border-box;}
   body{
     background:#fff;
     display:flex;
     justify-content:center;
     align-items:center;
     min-height:100vh;
-    padding:40px 20px;
+    padding:0 0.5cm;
     font-family:Arial, sans-serif;
   }
-
   .carousel-container{
     width:100%;
-    max-width:1200px;
     overflow:hidden;
     position:relative;
   }
-
   .carousel-track{
     display:flex;
-    transition:transform 0.8s ease-in-out;
-    gap:24px;
+    transition:transform 0.5s ease-in-out;
+    gap:0;
   }
-
   .banner{
-    min-width:calc(50% - 12px);
-    border-radius:14px;
+    min-width:100%;
+    flex-shrink:0;
     overflow:hidden;
     text-decoration:none;
-    box-shadow:0 4px 18px rgba(0,0,0,.18);
     transition:transform .3s ease;
   }
-
-  .banner:hover{
-    transform:scale(1.02);
-  }
-
-  .banner img{
-    width:100%;
-    display:block;
-  }
-
-  @media(max-width:768px){
-    .banner{
-      min-width:100%;
-    }
-  }
+  .banner:hover{transform:scale(1.01);}
+  .banner img{width:100%;display:block;}
 </style>
 </head>
-
 <body>
-
 <div class="carousel-container">
-
   <div class="carousel-track" id="carouselTrack">
-
-    <a class="banner" href="TU_LINK_FORO_1" target="_blank">
-      <img src="IMAGEN_1" alt="Foro 1">
+    <a class="banner" href="https://campus.neumann.edu.pe/course/view.php?id=465" target="_blank">
+      <img src="https://i.postimg.cc/Hnq5SX8S/Mesa-de-trabajo-1-12-2x.png"/>
     </a>
-
-    <a class="banner" href="TU_LINK_FORO_2" target="_blank">
-      <img src="IMAGEN_2" alt="Foro 2">
+    <a class="banner" href="" target="_blank">
+      <img src="https://i.postimg.cc/v8xGrqDN/que-gusto-tenerte-de-vuelta-2.jpg"/>
+  
     </a>
-
-    <a class="banner" href="TU_LINK_FORO_3" target="_blank">
-      <img src="IMAGEN_3" alt="Foro 3">
-    </a>
-
-    <a class="banner" href="TU_LINK_FORO_4" target="_blank">
-      <img src="IMAGEN_4" alt="Foro 4">
-    </a>
-
   </div>
-
 </div>
-
 <script>
   const track = document.getElementById("carouselTrack");
   const banners = document.querySelectorAll(".banner");
-
   let index = 0;
 
   function moveCarousel() {
-
-    const bannerWidth = banners[0].offsetWidth + 24;
-
-    // En PC muestra 2 banners
-    // En móvil muestra 1 banner
-    const visibleItems = window.innerWidth <= 768 ? 1 : 2;
-
     index++;
-
-    if(index > banners.length - visibleItems){
+    if(index >= banners.length){
       index = 0;
     }
-
-    track.style.transform = `translateX(-${index * bannerWidth}px)`;
+    track.style.transform = `translateX(-${index * 100}%)`;
   }
 
-  // Cambia automáticamente cada 15 segundos
-  setInterval(moveCarousel, 15000);
-
+  setInterval(moveCarousel, 8000);
 </script>
-
 </body>
 </html>
